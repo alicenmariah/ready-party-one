@@ -11,5 +11,8 @@ let customMonster = {
     ac:"",
     maxHP:"",
     currentHP:"",
-    initNum:""
+    initNum:"",
+    mobYN: true,
+    mobNum:0,
+    mobColor:"",
 }
