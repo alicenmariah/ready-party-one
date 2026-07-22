@@ -3,183 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/khi2rfp.css">
+    <script src="app.js"></script>
     <title>Initiative Tracker | DM View</title>
 </head>
-<body>
-    <header>
+<body class="background">
+    <header class="container">
         <div class="site-branding-box">
-            <img src="" alt="">
-            <h2>Ready Party One</h2>
+            <img src="assets/RP2.svg" alt="">
         </div>
             
         <nav>
-            <span>
-                <a href="player-view.html">Player View</a>
-            </span>
+                <a class="hover-nav" href="player-view.html">Player View</a>
+                
         </nav>
     </header>
     <br>
     <main>
+        <section class="add-stuff">
         <section>
-            
             <form action="">
-                <article class="init-list-item init-1">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
+                <article class="add-player player add">
+                    
 
-                <article class="init-list-item init-2">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
+                    <div>
+                        
+                        <h2 class="add-title player-title">ADD PLAYER</h2>
+                </div>
+                    
+                    <div class="input-groups">
+            
+                        <label for="player-name">Player Name</label>
+                        <input type="text" id="player-name" name="player-name">
+                    </div>
 
-                <article class="init-list-item init-3">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
 
-                <article class="init-list-item init-4">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
+                    <div class="input-groups">
 
-                <article class="init-list-item init-5">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
+                        <label for="player-init-num">#</label>
+                        <input type="text" id="player-init-num" name="player-init-num" class="small-input">
+                        
+                    <label for="player-current-hp">HP</label>
+                    <input type="text" id="player-current-hp" name="player-current-hp" class="small-input" placeholder="Now">
 
-                <article class="init-list-item init-6">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
-
-                <article class="init-list-item init-7">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
-
-                <article class="init-list-item init-8">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
-
-                <article class="init-list-item init-9">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
-                </article>
-
-                <article class="init-list-item init-10">
-                    <label for="initnum">#</label>
-                    <input type="text" id="initnum" name="initnum" class="small-input">
-                    <label for="pname">Player Name</label>
-                    <input type="text" id="pname" name="pname">
-                    <label for="pname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <label for="currenthp">Current HP</label>
-                    <input type="text" id="currenthp" name="currenthp" class="small-input">
-                    <label for="maxhp">/ Max HP</label>
-                    <input type="text" id="maxhp" name="maxhp" class="small-input">
-                    <label for="ac">AC</label>
-                    <input type="text" id="ac" name="ac" class="small-input">
+                    <label for="player-max-hp">/</label>
+                    <input type="text" id="player-max-hp" name="player-max-hp" class="small-input" placeholder="Max">
+                    <label for="player-ac">AC</label>
+                    <input type="text" id="player-ac" name="player-ac" class="small-input">
+                    </div>
+                    
+                    <div class="input-groups add-button">
+                        <input type="button" id="add-player-button" value="+ Player"><br>
+                    </div>
                 </article>
             </form>
-        </section>
+            
 
+                <form action="">
+                    
+                    <article class="add-monster monster add">
+
+                        <h2 class="add-title monster-title">ADD MONSTER</h2>
+                    
+                    <div class="input-groups">
+                        <label for="mon-search">Monster Lookup:</label>
+                        <input type="search" id="mon-search" name="mon-search" placeholder="Search D&D 5e SRD">
+                    </div>
+
+                    <div class="input-groups">
+                        
+                        <label for="player-name">Monster Name</label>
+                        <input type="text" id="player-name" name="player-name">
+                    </div>
+
+
+                    <div class="input-groups">
+                        <label for="player-init-num">#</label>
+                        <input type="text" id="player-init-num" name="player-init-num" class="small-input">
+                        
+                    <label for="player-current-hp">HP</label>
+                    <input type="text" id="player-current-hp" name="player-current-hp" class="small-input" placeholder="Now">
+
+                    <label for="player-max-hp">/</label>
+                    <input type="text" id="player-max-hp" name="player-max-hp" class="small-input" placeholder="Max">
+                    <label for="player-ac">AC</label>
+                    <input type="text" id="player-ac" name="player-ac" class="small-input">
+                    </div>
+
+                    <div class="input-groups">
+                    <label for="mob-group-check">Group?</label>
+                     <select name="pick-mob-group-color" id="pick-mob-group-color">
+                        <option value="">Group Colors</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="green">Green</option>
+                        <option value="orange">Orange</option>
+                        <option value="purple">Purple</option>
+                        <option value="pink">Pink</option>
+                     </select>
+                    </div>
+                    
+                    <div class="input-groups add-button">
+                        <input type="button" id="add-monster-button" value="+ Monster">
+                    </div>
+                </article>
+                </form>
+                </section>
+
+            
+            <form action="">
+                <article class="player-init-item player">
+                    <p>#</p>
+                    <p>AC:</p>
+                    <p>Player Name:</p>
+                    <div class="hp-group">
+                        <p>Current HP:</p>
+                        <p>Max HP:</p>
+                    </div>
+
+                    
+                </article>
+            </form>
+
+                <form action="">
+                <article class="custom-monster-init-item monster">
+                    <label for="custom-monster-init-num">#</label>
+                    <input type="text" id="custom-monster-init-num" name="custom-monster-init-num" class="small-input">
+                    <label for="custom-monster-name">Monster Name</label>
+                    <input type="text" id="custom-monster-name" name="custom-monster-name">
+                    <label for="custom-monster-current-hp">Current HP</label>
+                    <input type="text" id="custom-monster-current-hp" name="custom-monster-current-hp" class="small-input">
+                    <label for="custom-monster-max-hp">/ Max HP</label>
+                    <input type="text" id="custom-monster-max-hp" name="custom-monster-max-hp" class="small-input">
+                    <label for="custom-monster-ac">AC</label>
+                    <input type="text" id="custom-monster-ac" name="custom-monster-ac" class="small-input"><br>
+                    
+                </article>
+            </form>
+            
         <section class="init-add-buttons">
-            <article class="add-monster-button"></article>
-            <article class="add-player-button"></article>
+            <input type="button" id="update-init" value="Update">
         </section>
+        
 
     </main>
 </body>

@@ -1,8 +1,117 @@
-.small-input {
-    width: 2em;
+@import url("https://use.typekit.net/khi2rfp.css");
+* {
+    font-family: "eurostile", sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    color-scheme: light dark;
+    
 }
 
-.init-list-item {
+html {
+    /* From Uiverse.io by catraco */ 
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgb(53, 53, 54), transparent 20%, rgb(3, 3, 3));
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: rgb(35, 35, 35);
+}
+
+.site-branding-box {
+    display: inline-flex;
+}
+
+form {
+    display: inline;
+}
+
+img {
+    width: 5em;
+    margin-left: 2.5em;
+
+}
+
+nav {
+    margin-right: 2.5em;
+    font-size: large;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hover-nav:hover{
+    color: rgb(187, 66, 66);
+}
+
+.container {
+    color: aliceblue;
+    background-color: rgb(12, 12, 12);
+    width: 100vw;
+    padding: 1em;
+    margin: 0em;
+    display: flex;
+    justify-content: space-between;
+    border-color: rgb(47, 46, 46);
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-width: .02em;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+
+}
+
+
+h1, h2, h3 {
+    font-family: "eurostile", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.add-title, h2 {
+    padding: .5em;
+    margin: 0em;
+}
+
+.monster-title  {
+    color:  rgb(187, 66, 66);
+}
+
+ .monster label {
+    color:white;
+}
+
+.player-title {
+    color:rgb(54, 60, 177);
+}
+
+ .player label, .player p {
+    color:white;
+}
+
+.small-input {
+    width: 3em;
+}
+
+.add-stuff {
+    justify-items: center;
+}
+
+.input-groups {
+    display: flex;
+    gap: .5em;
+    line-height: 1em;
+}
+
+.custom-monster-init-item, .player-init-item {
     background-color: grey;
     padding: 1em;
     margin: 1.5em;
@@ -14,4 +123,64 @@
     align-content: center;
     width: 80vw;
 }
+
+.monster {
+    outline: rgb(253, 55, 55);
+    outline-width: .05em;
+    outline-style: solid;
+     background-color: rgb(18, 18, 18);
+    box-shadow: inset 0 0 30px 5px #281c1c;
+    filter: drop-shadow(2px 2px 10px #0b0b0b);
+    
+}
+
+.player {
+    outline: rgb(128, 212, 255);
+    outline-width: .05em;
+    outline-style: solid;
+    background-color: rgb(18, 18, 18);
+    filter: drop-shadow(2px 2px 10px #0b0b0b);
+    
+}
+
+
+
+.add-player {
+
+    outline: rgb(45, 45, 76);
+    outline-width: .1em;
+    outline-style: solid;
+    flex-wrap: wrap;
+    row-gap: .5em;
+    box-shadow: inset 0 0 30px 5px #1d1c28;
+    background-color: rgb(18, 18, 18);
+    
+
+}
+
+.add-monster {
+
+
+    outline: rgb(76, 45, 45);
+    outline-width: .1em;
+    outline-style: solid;
+    flex-wrap: wrap;
+    row-gap: .5em;
+    padding-right: 1.75em;
+    background-color: rgb(18, 18, 18);
+
+}
+
+.add {
+    width: 40vw;
+    display: inline-flex;
+    margin: 1em;
+    padding: 1em;
+    justify-content: center;
+    border-radius:.5em;
+}
+
+
+
+
 
