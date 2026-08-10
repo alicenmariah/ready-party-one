@@ -2,7 +2,6 @@
 * {
     font-family: "eurostile", sans-serif;
     margin: 0;
-    overflow-x: hidden;
     box-sizing: border-box;
     color-scheme: light dark;
     
@@ -20,16 +19,12 @@ html {
 
 .site-branding-box {
     display: inline-flex;
+    gap: 2em;
+    align-items: center;
 }
 
 form {
     display: inline;
-}
-
-img {
-    width: 5em;
-    margin-left: 2.5em;
-
 }
 
 nav {
@@ -49,7 +44,6 @@ nav a {
 .container {
     color: aliceblue;
     background-color: rgb(12, 12, 12);
-    width: 100vw;
     padding: 1em;
     margin: 0em;
     display: flex;
@@ -60,6 +54,7 @@ nav a {
     border-bottom-style: solid;
     border-left-style: none;
     border-width: .02em;
+    
 
 }
 
@@ -81,11 +76,13 @@ h1, h2, h3 {
     margin: 0em;
 }
 
+
+
 .monster-title  {
     color:  rgb(187, 66, 66);
 }
 
- .monster label {
+.monster label {
     color:white;
 }
 
@@ -102,17 +99,22 @@ h1, h2, h3 {
 }
 
 .add-stuff {
-    justify-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .input-groups {
     display: flex;
     gap: .5em;
     line-height: 1em;
+    
 }
 
 .custom-monster-init-item, .player-init-item {
-    background-color: grey;
+    
     padding: 1em;
     margin: 1.5em;
     border-radius: .5em;
@@ -121,41 +123,37 @@ h1, h2, h3 {
     justify-content: space-between;
     justify-self: center;
     align-content: center;
-    width: 80vw;
+    width: 77vw;
+    align-items: center;
 }
 
 .monster {
     outline: rgb(253, 55, 55);
-    outline-width: .05em;
+    outline-width: .1em;
     outline-style: solid;
-     background-color: rgb(18, 18, 18);
+    background-color: rgb(18, 18, 18);
     box-shadow: inset 0 0 30px 5px #281c1c;
     filter: drop-shadow(2px 2px 10px #0b0b0b);
     
 }
 
 .player {
-    outline: rgb(128, 212, 255);
-    outline-width: .05em;
+    outline: rgb(45, 45, 76);
+    outline-width: .1em;
     outline-style: solid;
+    row-gap: .5em;
+    box-shadow: inset 0 0 30px 5px #1d1c28;
     background-color: rgb(18, 18, 18);
     filter: drop-shadow(2px 2px 10px #0b0b0b);
-    
 }
-
-
 
 .add-player {
 
     outline: rgb(45, 45, 76);
     outline-width: .1em;
     outline-style: solid;
-    flex-wrap: wrap;
     row-gap: .5em;
-    box-shadow: inset 0 0 30px 5px #1d1c28;
     background-color: rgb(18, 18, 18);
-    
-
 }
 
 .add-monster {
@@ -164,23 +162,95 @@ h1, h2, h3 {
     outline: rgb(76, 45, 45);
     outline-width: .1em;
     outline-style: solid;
-    flex-wrap: wrap;
     row-gap: .5em;
-    padding-right: 1.75em;
     background-color: rgb(18, 18, 18);
 
 }
 
 .add {
-    width: 40vw;
-    display: inline-flex;
+    width: 37vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
     margin: 1em;
     padding: 1em;
-    justify-content: center;
-    border-radius:.5em;
+    border-radius: 0.5em;
 }
 
+form {
+    line-height: .2em;
+    
+}
+ .mon-play {
+    line-height: 2em;
+}
+
+#test {
+    display: grid;
+    grid-template-rows: 1em;
+
+}
+
+img {
+    height: 4em;
+    width: 4em;
+}
+
+@media screen and (max-width: 768px) {
+    .add-player,
+    .add-monster {
+        width: calc(100% - 2rem);
+        min-width: 0;
+        margin: 1rem;
+    }
 
 
+
+    .input-groups {
+        flex-wrap: wrap;
+    }
+}
+ 
+.group-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+    .group-row {
+        flex-direction: column;
+    }
+}
+
+.pick-condition {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.init-add-buttons {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.height {
+    height: 25vh;
+}
+
+@media screen and (max-width: 1300px) {
+    .height {
+        height: 35vh;
+    }
+
+    
+}
 
 

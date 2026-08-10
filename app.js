@@ -101,3 +101,9 @@ function  ConvertMonsterHP (monsterCurrentHP, monsterMaxHP) {
 function SortInitiative (monsterInitNum, playerInitNum) {
     
 }
+
+function PlayerOrMonster (player,monster) {
+    if (player) {
+        return 
+    }
+}

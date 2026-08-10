@@ -3,64 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+     <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="player-view.css">
+
     <title>Initiative Tracker | Player View</title>
 </head>
+
+<div>
+    <a href="index.html"><img class="x" src="/assets/x.svg"></a>
+</div>
+
 <body>
 
+    <div class="player-header">
+        <h1 class="title">Who's Turn Is It?</h1>
+        <h2 class="current-combatant">It is <span class="ur-up-player ur-up-monster">Ally's</span> Turn!</h2>
+    </div>
+    <div class="arrow-bar">
+        <h1 class="arrow">⬇</h1>
+    </div>
+    <div class="select-bar select-bar-row-1">
 
-    <main>
-
-        <section class="init-add-buttons">
-            <article class="add-monster-button"></article>
-            <article class="add-player-button"></article>
-        </section>
-
-        <section>
-
-                <article class="init-track-item init-1">
-
-                </article>
-
-                <article class="init-track-item init-2">
-                    
-                </article>
-
-                <article class="init-track-item init-3">
-                   
-                </article>
-
-                <article class="init-track-item init-4">
-                    
-                </article>
-
-                <article class="init-track-item init-5">
-                   
-                </article>
-
-                <article class="init-track-item init-6">
-                    
-                </article>
-
-                <article class="init-track-item init-7">
-                   
-                </article>
-
-                <article class="init-track-item init-8">
-                    
-                </article>
-
-                <article class="init-track-item init-9">
-                    
-                </article>
-
-                <article class="init-track-item init-10">
-                    
-                </article>
-
-        </section>
-
-
-    </main>
     
+
+    <div class="combat-box add-player player-box">
+    <h1>Player Name</h1>
+    <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
+    <br>
+    <div class="major-stats">
+    <h3 class="ac-card-num">12</h3> 
+    <h2>70/100</h2>
+    </div>
+    <br>
+    <label for="HP"></label>
+    <meter value="70" id="HP" min="0" max="100" low="33" high="66" optimum="80" placeholder="70/100"></meter>
+
+    <br>
+
+    <div class="condition-box">
+        <!-- <span class="condition-icon blinded">🙈 Blinded</span>
+        <span class="condition-icon charmed">💖 Charmed</span>
+        <span class="condition-icon deafened">🙉 Deafened</span>
+        <span class="condition-icon frightened">😨 Frightened</span>
+        <span class="condition-icon grappled">🤼 Grappled</span>
+        <span class="condition-icon incapacitated">🚫 Incapacitated</span>
+        <span class="condition-icon invisible">🫥 Invisible</span>
+        <span class="condition-icon paralyzed">⚡ Paralyzed</span>
+        <span class="condition-icon petrified">🗿 Petrified</span>
+        <span class="condition-icon poisoned">🧪 Poisoned</span> -->
+        <span class="condition-icon prone">⬇️ Prone</span>
+        <span class="condition-icon restrained">⛓️ Restrained</span>
+        <span class="condition-icon stunned">💫 Stunned</span>
+        <span class="condition-icon unconscious">💤 Unconscious</span>
+        <span class="condition-icon dead">❌ Dead</span>
+        <!-- <span class="condition-icon dead">✅ No Conditions</span> -->
+    </div>
+    </div>
+
+    <div class="selector-bar selector-bar-row-2">
+
+    </div>
+
+    <div class="combat-box add-monster player-box">
+    <h1>Monster Name</h1>
+    <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
+    <br>
+    <div class="major-stats">
+    <h3 class="ac-card-num">?</h3> 
+    <h2>BARELY INJURED</h2>
+    </div>
+    <br>
+        <div class="condition-box">
+        <!-- <span class="condition-icon blinded">🙈 Blinded</span>
+        <span class="condition-icon charmed">💖 Charmed</span>
+        <span class="condition-icon deafened">🙉 Deafened</span>
+        <span class="condition-icon frightened">😨 Frightened</span>
+        <span class="condition-icon grappled">🤼 Grappled</span>
+        <span class="condition-icon incapacitated">🚫 Incapacitated</span>
+        <span class="condition-icon invisible">🫥 Invisible</span>
+        <span class="condition-icon paralyzed">⚡ Paralyzed</span>
+        <span class="condition-icon petrified">🗿 Petrified</span>
+        <span class="condition-icon poisoned">🧪 Poisoned</span> -->
+        <!-- <span class="condition-icon prone">⬇️ Prone</span>
+        <span class="condition-icon restrained">⛓️ Restrained</span>
+        <span class="condition-icon stunned">💫 Stunned</span>
+        <span class="condition-icon unconscious">💤 Unconscious</span>
+        <span class="condition-icon dead">❌ Dead</span> -->
+        <span class="condition-icon dead">✅ No Conditions</span>
+    </div>
+    </div>
+
+    </div>
+
+    <p></p>
+</div>
+</div>
+
 </body>
 </html>

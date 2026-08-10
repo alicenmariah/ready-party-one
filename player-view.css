@@ -1,0 +1,125 @@
+
+meter {
+    height: 30px;
+    width: 11em;
+}
+
+.player-box {
+    width: 15vw;
+    height: auto;
+    border-radius: .5em;
+    margin: 3em;
+    gap: 2em;
+    padding: 1em;
+    text-align: center;
+    outline-width: .2em;
+    
+
+}
+
+.x {
+    width: .5em;
+    margin-left: 3em;
+    margin-bottom: -2em;
+    filter: opacity(5%);
+}
+
+.ac-card-num { 
+   background-image: url("assets/shield.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 2.3em;
+   background-clip: border-box;
+   line-height: 2.5em;
+   height: 3em;
+}
+
+.major-stats {
+    display: inline-block;
+}
+
+.frame-placeholder {
+    width: 9em;
+    padding: 1em;
+}
+
+/* .combat-box {
+    display: inline-flex;
+    flex-direction: row;
+} */
+
+.condition-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: .3em;
+    padding-top: .5em;
+    justify-content: center;
+}
+
+.condition-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0.1em solid rgb(83, 82, 82);
+    padding: 0.4em;
+    background-color: rgb(18, 18, 18);
+    border-radius: .5em;
+    white-space: nowrap;
+}
+
+.pick-condition {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.init-add-buttons {
+    margin: 0;
+}
+
+.select-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.height {
+    height: 25vh;
+}
+
+.title {
+    display: block;
+    justify-self: center;
+    font-size: 4em;
+}
+
+.player-header {
+    display: block;
+    justify-items: center;
+}
+
+.player-header h2 {
+    font-size: 3em;
+}
+
+.ur-up-player {
+    color:rgb(54, 60, 177);
+}
+
+.ur-up-monster {
+    color: rgb(187, 66, 66);
+}
+
+.arrow-bar {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    
+
+}
+
+.arrow {
+    font-size: 4em;
+    grid-column-start: 1;
+    text-align: center;
+}
+
