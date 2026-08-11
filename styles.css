@@ -242,12 +242,12 @@ img {
 }
 
 .height {
-    height: 25vh;
+    height: 29vh;
 }
 
 @media screen and (max-width: 1300px) {
     .height {
-        height: 35vh;
+        height: 40vh;
     }
 
     

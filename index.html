@@ -104,22 +104,22 @@
                     <div class="input-groups">
                         
                         <label for="player-name">Name</label>
-                        <input type="text" id="player-name" name="player-name">
+                        <input type="text" id="monster-name" name="monster-name">
                     </div>
 
                     </div>
                 <div class="group-row">
                     <div class="input-groups">
-                        <label for="player-init-num">#</label>
-                        <input type="text" id="player-init-num" name="player-init-num" class="small-input">
+                        <label for="monster-init-num">#</label>
+                        <input type="text" id="monster-init-num" name="monster-init-num" class="small-input">
                         
-                    <label for="player-current-hp">HP</label>
-                    <input type="text" id="player-current-hp" name="player-current-hp" class="small-input" placeholder="Now">
+                    <label for="monster-current-hp">HP</label>
+                    <input type="text" id="monster-current-hp" name="monster-current-hp" class="small-input" placeholder="Now">
 
-                    <label for="player-max-hp">/</label>
-                    <input type="text" id="player-max-hp" name="player-max-hp" class="small-input" placeholder="Max">
-                    <label for="player-ac">AC</label>
-                    <input type="text" id="player-ac" name="player-ac" class="small-input">
+                    <label for="monster-max-hp">/</label>
+                    <input type="text" id="monster-max-hp" name="monster-max-hp" class="small-input" placeholder="Max">
+                    <label for="monster-ac">AC</label>
+                    <input type="text" id="monster-ac" name="monster-ac" class="small-input">
                     </div>
 
                     <div class="input-groups">
@@ -153,9 +153,14 @@
                 </form>
         </section>
 
+        <section class="combatants">
+            <div id="player-card"></div>
+            <div id="monster-card"></div>
+
+        </section>
             
                 <form action="">
-                    <article class="player-init-item add-player mon-play hidden">
+                    <article class="player-init-item add-player mon-play hidden" id="player-card-template">
                         <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
 
                         <p>#</p>
@@ -190,7 +195,7 @@
 
                     </article>
 <form action="">
-    <article class="custom-monster-init-item add-monster mon-play hidden">
+    <article class="custom-monster-init-item add-monster mon-play hidden" id="monster-card-template">
 
         <div class="hp-group">
             <p>Monster Name:</p>
