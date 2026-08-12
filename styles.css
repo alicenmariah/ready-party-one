@@ -8,13 +8,7 @@
 }
 
 html {
-    /* From Uiverse.io by catraco */ 
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgb(53, 53, 54), transparent 20%, rgb(3, 3, 3));
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-color: rgb(35, 35, 35);
+  background-color: rgb(19, 19, 19);
 }
 
 .site-branding-box {
@@ -253,4 +247,30 @@ img {
     
 }
 
+.token-frame {
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+}
+
+.token-image {
+    position: absolute;
+    top: 0.25em;
+    left: 0.25em;
+    width: calc(100% - 0.5em);
+    height: calc(100% - 0.5em);
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.frame-placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+}
 

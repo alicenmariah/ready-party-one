@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.typekit.net/khi2rfp.css">
-    <script src="app.js"></script>
+
     <title>Initiative Tracker | DM View</title>
 </head>
 <body class="background">
@@ -65,7 +65,7 @@
                     </div>
                     
                     <div class="file-box">
-                            <button type="button" onclick="document.getElementById('myFile').click()">
+                            <button type="button" onclick="document.getElementById('player-image').click()">
                                 Add Token Image?
                             </button>
                             <input type="file" id="player-image" name="filename" hidden>
@@ -74,7 +74,7 @@
                    
                     <div class="input-groups add-button">
                     
-                        <input type="button" id="add-player-button" value="+ Player"><br>
+                        <button type="button" id="add-player-button">+ Player</button><br>
                         
                     </div>
                    
@@ -138,13 +138,13 @@
                         
                     </div>
                     <div class="file-box">
-                            <button type="button" onclick="document.getElementById('myFile').click()">
+                            <button type="button" onclick="document.getElementById('monster-image').click()">
                                 Add Token Image?
                             </button>
                             <input type="file" id="monster-image" name="filename" hidden>
                         </div>
                      <div class="input-groups add-button add-stuff">
-                        <input type="button" id="add-monster-button" value="+ Monster">
+                        <button type="button" id="add-monster-button">+ Monster</button><br>
                     
                     </div>
                     
@@ -161,7 +161,11 @@
             
                 <form action="">
                     <article class="player-init-item add-player mon-play hidden" id="player-card-template">
-                        <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
+
+                        <div class="token-frame">
+                            <img class="token-image" src="" alt="">
+                            <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
+                        </div>                        
 
                         <p>#</p>
                         <p>Player Name:</p>
@@ -170,28 +174,33 @@
                         <p>Max HP:</p>
 
                             <div class="pick-condition">
-                                <select name="pick-condition" id="player-condition">
-                                    <option value="">Add Condition?</option>
-                                    <option value="blinded">Blinded</option>
-                                    <option value="charmed">Charmed</option>
-                                    <option value="deafened">Deafened</option>
-                                    <option value="frightened">Frightened</option>
-                                    <option value="grappled">Grappled</option>
-                                    <option value="invisible">Invisible</option>
-                                    <option value="paralyzed">Paralyzed</option>
-                                    <option value="petrified">Petrified</option>
-                                    <option value="poisoned">Poisoned</option>
-                                    <option value="prone">Prone</option>
-                                    <option value="restrained">Restrained</option>
-                                    <option value="stunned">Stunned</option>
-                                    <option value="unconscious">Unconscious</option>
-                                    <option value="dead">Dead</option>
-                                </select>
+                            <select name="pick-condition" id="player-condition">
+                                <option value="">Add Condition?</option>
+                                <option value="blinded">Blinded</option>
+                                <option value="charmed">Charmed</option>
+                                <option value="deafened">Deafened</option>
+                                <option value="frightened">Frightened</option>
+                                <option value="grappled">Grappled</option>
+                                <option value="invisible">Invisible</option>
+                                <option value="paralyzed">Paralyzed</option>
+                                <option value="petrified">Petrified</option>
+                                <option value="poisoned">Poisoned</option>
+                                <option value="prone">Prone</option>
+                                <option value="restrained">Restrained</option>
+                                <option value="stunned">Stunned</option>
+                                <option value="unconscious">Unconscious</option>
+                                <option value="dead">Dead</option>
+                            </select>
 
-                                <section class="init-add-buttons">
-                                    <input type="button" id="update-init" value="Update">
-                                </section>
+                            <div class="condition-row">
+                                <p>Current Conditions:</p>
+                                <div class="condition-box" id="player-condition-box"></div>
                             </div>
+
+                            <section class="init-add-buttons">
+                                <input type="button" id="update-init" value="Update">
+                            </section>
+                        </div>
 
                     </article>
 <form action="">
@@ -251,4 +260,7 @@
 
     </main>
 </body>
+
+<script src="app.js"></script>
+
 </html>

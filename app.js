@@ -1,78 +1,92 @@
-// let player = {
-//     playerName:"",
-//     playerAC:"",
-//     playerMaxHP:"",
-//     playerCurrentHP:"",
-//     playerInitNum:""
-// }
+const playerTemplate = document.querySelector("#player-card-template");
+const monsterTemplate = document.querySelector("#monster-card-template");
 
-// let customMonster = {
-//     monsterName:"",
-//     monsterAC:"",
-//     monsterMaxHP: 0,
-//     monsterCurrentHP: 0,
-//     monsterInitNum:"",
-//     mobYN: true,
-//     mobNum:0,
-//     mobColor:"",
-//     monID:""
-// }
+const playerContainer = document.querySelector("#player-card");
+const monsterContainer = document.querySelector("#monster-card");
 
-//Keep for reference, this won't work I think
+let playerTokenSrc = "";
+let monsterTokenSrc = "";
 
+const playerFileInput = document.getElementById("player-image");
+const monsterFileInput = document.getElementById("monster-image");
 
-let customMonsters = [];
-let players = [];
+playerFileInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
 
-//Adding from the Player Form
-const playerForm = document.querySelector("#player-init-item");
-
-playerForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-const newPlayer = {
-    playerName: document.querySelector("#player-name").value,
-    playerAC: Number(document.querySelector("#player-ac").value),
-    playerMaxHP: Number(document.querySelector("#player-max-hp").value),
-    playerCurrentHP: Number(
-        document.querySelector("#player-current-hp").value
-    ),
-    playerInitNum: Number(
-        document.querySelector("#player-initiative").value
-    )};
-
-    players.push(newPlayer);
-
-    displayInitiative();
-
-    playerForm.reset();
+    const reader = new FileReader();
+    reader.onload = () => {
+        playerTokenSrc = reader.result;
+    };
+    reader.readAsDataURL(file);
 });
 
-//Adding from the Custom Monster Form
-const customMonsterForm = document.querySelector("#custom-monster-init-item");
+document.querySelector("#add-player-button").addEventListener("click", function () {
+    const card = playerTemplate.cloneNode(true);
 
-customMonsterForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+    card.removeAttribute("id");
+    card.classList.remove("hidden");
 
+    card.querySelector("p:nth-of-type(1)").textContent =
+        `# ${document.querySelector("#player-init-num").value}`;
 
-const newCustomMonster = {
-    customMonsterName: document.querySelector("#custom-monster-name").value,
-    customMonsterAC: Number(document.querySelector("#custom-monster-ac").value),
-    customMonsterMaxHP: Number(document.querySelector("#custom-monster-max-hp").value),
-    customMonsterCurrentHP: Number(
-        document.querySelector("#custom-monster-current-hp").value
-    ),
-    customInitNum: Number(
-        document.querySelector("#custom-monster-initiative").value
-    )};
+    card.querySelector("p:nth-of-type(2)").textContent =
+        `Player Name: ${document.querySelector("#player-name").value}`;
 
-    customMonsters.push(newCustomMonster);
+    card.querySelector("p:nth-of-type(3)").textContent =
+        `AC: ${document.querySelector("#player-ac").value}`;
 
-    displayInitiative();
+    card.querySelector("p:nth-of-type(4)").textContent =
+        `Current HP: ${document.querySelector("#player-current-hp").value}`;
 
-    customMonsterFormForm.reset();
+    card.querySelector("p:nth-of-type(5)").textContent =
+        `Max HP: ${document.querySelector("#player-max-hp").value}`;
+
+    const token = card.querySelector(".token-image");
+    token.src = playerTokenSrc || "";
+    token.alt = "Player token";
+
+    playerContainer.appendChild(card);
 });
 
+monsterFileInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        monsterTokenSrc = reader.result;
+    };
+    reader.readAsDataURL(file);
+});
+
+document.querySelector("#add-monster-button").addEventListener("click", function () {
+    const card = monsterTemplate.cloneNode(true);
+
+    card.removeAttribute("id");
+    card.classList.remove("hidden");
+
+    card.querySelectorAll("p")[0].textContent =
+        `Monster Name: ${document.querySelector("#monster-name").value}`;
+
+    card.querySelectorAll("p")[1].textContent =
+        `# ${document.querySelector("#monster-init-num").value}`;
+
+    card.querySelectorAll("p")[2].textContent =
+        `AC: ${document.querySelector("#monster-ac").value}`;
+
+    card.querySelectorAll("p")[3].textContent =
+        `Current HP: ${document.querySelector("#monster-current-hp").value}`;
+
+    card.querySelectorAll("p")[4].textContent =
+        `Max HP: ${document.querySelector("#monster-max-hp").value}`;
+
+    const token = card.querySelector(".token-image");
+    token.src = monsterTokenSrc || "";
+    token.alt = "Monster token";
+
+    monsterContainer.appendChild(card);
+});
 
 
 //Converting a Monster's HP number to a Description
