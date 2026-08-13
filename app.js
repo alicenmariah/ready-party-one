@@ -1,124 +1,137 @@
-const playerTemplate = document.querySelector("#player-card-template");
-const monsterTemplate = document.querySelector("#monster-card-template");
 
-const playerContainer = document.querySelector("#player-card");
-const monsterContainer = document.querySelector("#monster-card");
+const combatants = JSON.parse(localStorage.getItem("combatants")) || [];
 
-let playerTokenSrc = "";
-let monsterTokenSrc = "";
+const addPlayer = document.getElementById("add-player-button");
+const addMonster =  document.getElementById("add-monster-button");
 
-const playerFileInput = document.getElementById("player-image");
-const monsterFileInput = document.getElementById("monster-image");
 
-playerFileInput.addEventListener("change", (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
+//Add monsters to combtant array and covert array to json for local storage
+addMonster.addEventListener('click', function(event) {
+            // Stops site from refreshing the page
+            event.preventDefault();
 
-    const reader = new FileReader();
-    reader.onload = () => {
-        playerTokenSrc = reader.result;
-    };
-    reader.readAsDataURL(file);
-});
+            //All the stuff I need to add from form
+            const formData = new FormData(addMonster.form);
+            const monsterName = formData.get('monster-name');
+            const monsterInit = formData.get('monster-init-num');
+            const monsterAC = formData.get('monster-ac');
+            const monsterCurrentHP = formData.get('monster-current-hp');
+            const monsterMaxHP = formData.get('monster-max-hp');
 
-document.querySelector("#add-player-button").addEventListener("click", function () {
-    const card = playerTemplate.cloneNode(true);
+            const customMonster = {
+                name: monsterName,
+                init: monsterInit,
+                ac: monsterAC,
+                currentHP: monsterCurrentHP,
+                maxHP: monsterMaxHP
+};
 
-    card.removeAttribute("id");
-    card.classList.remove("hidden");
+            combatants.push(customMonster);
 
-    card.querySelector("p:nth-of-type(1)").textContent =
-        `# ${document.querySelector("#player-init-num").value}`;
+            localStorage.setItem("combatants", JSON.stringify(combatants));
 
-    card.querySelector("p:nth-of-type(2)").textContent =
-        `Player Name: ${document.querySelector("#player-name").value}`;
+        });
 
-    card.querySelector("p:nth-of-type(3)").textContent =
-        `AC: ${document.querySelector("#player-ac").value}`;
+//Add players to combtant array and covert array to json for local storage
+addPlayer.addEventListener('click', function(event) {
+            // Stops site from refreshing the page
+            event.preventDefault();
 
-    card.querySelector("p:nth-of-type(4)").textContent =
-        `Current HP: ${document.querySelector("#player-current-hp").value}`;
+            //All the stuff I need to add from form
+            const formData = new FormData(addPlayer.form);
+            const playerName = formData.get('player-name');
+            const playerInit = formData.get('player-init-num');
+            const playerAC = formData.get('player-ac');
+            const playerCurrentHP = formData.get('player-current-hp');
+            const playerMaxHP = formData.get('player-max-hp');
 
-    card.querySelector("p:nth-of-type(5)").textContent =
-        `Max HP: ${document.querySelector("#player-max-hp").value}`;
+            const customPlayer = {
+                name: playerName,
+                init: playerInit,
+                ac: playerAC,
+                currentHP: playerCurrentHP,
+                maxHP: playerMaxHP
+};
 
-    const token = card.querySelector(".token-image");
-    token.src = playerTokenSrc || "";
-    token.alt = "Player token";
+            console.log(combatants)
 
-    playerContainer.appendChild(card);
-});
+            combatants.push(customPlayer);
 
-monsterFileInput.addEventListener("change", (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
+            localStorage.setItem("combatants", JSON.stringify(combatants));
 
-    const reader = new FileReader();
-    reader.onload = () => {
-        monsterTokenSrc = reader.result;
-    };
-    reader.readAsDataURL(file);
-});
+        });
 
-document.querySelector("#add-monster-button").addEventListener("click", function () {
-    const card = monsterTemplate.cloneNode(true);
+//Now to get Monsters and Players to display in the DM View and Player View
 
-    card.removeAttribute("id");
-    card.classList.remove("hidden");
+//DM View Templates
+const monsterTemplateDM = document.querySelector(".monster-card-template");
+const playerTemplateDM = document.querySelector(".player-card-template");
 
-    card.querySelectorAll("p")[0].textContent =
-        `Monster Name: ${document.querySelector("#monster-name").value}`;
+const monsterDMCard = monsterTemplateDM.cloneNode(true);
+const playerDMCard = playerTemplateDM.cloneNode(true);
 
-    card.querySelectorAll("p")[1].textContent =
-        `# ${document.querySelector("#monster-init-num").value}`;
 
-    card.querySelectorAll("p")[2].textContent =
-        `AC: ${document.querySelector("#monster-ac").value}`;
+//Remove Hidden CSS
+monsterDMCard.classList.remove("hidden");
+playerDMCard.classList.remove("hidden");
 
-    card.querySelectorAll("p")[3].textContent =
-        `Current HP: ${document.querySelector("#monster-current-hp").value}`;
+monsterDMCard.querySelector(".monster-name").textContent = customMonster.name;
 
-    card.querySelectorAll("p")[4].textContent =
-        `Max HP: ${document.querySelector("#monster-max-hp").value}`;
 
-    const token = card.querySelector(".token-image");
-    token.src = monsterTokenSrc || "";
-    token.alt = "Monster token";
 
-    monsterContainer.appendChild(card);
-});
 
+//Player View Templates
+const monsterTemplatePlayer = document.querySelector(".monster-box-template");
+const playerTemplatePlayer = document.querySelector(".player-box-template");
+
+
+const monsterPlayerBox = monsterTemplatePlayer.cloneNode(true);
+const playerPlayerBox = playerTemplatePlayer.cloneNode(true);
+
+//Remove Hidden CSS
+monsterPlayerBox.classList.remove("hidden");
+playerPlayerBox.classList.remove("hidden");
+
+
+
+const listCombatant = document.createElement("");
+
+
+
+// combatants.sort(function (a, b) {
+//     return b.initiative - a.initiative;
+// });
 
 //Converting a Monster's HP number to a Description
-let monsterMaxHP = customMonsters.monsterMaxHP;
-let monsterCurrentHP = customMonsters.monsterCurrentHP;
-let monsterDescription = "";
+// let monsterMaxHP = customMonsters.monsterMaxHP;
+// let monsterCurrentHP = customMonsters.monsterCurrentHP;
+// let monsterDescription = "";
 
-function  ConvertMonsterHP (monsterCurrentHP, monsterMaxHP) {
-    if (monsterMaxHP == monsterCurrentHP) {
-        return monsterDescription = "Uninjured";
-    } else if (monsterCurrentHP >= monsterMaxHP * 0.75 
-        && monsterCurrentHP > monsterMaxHP * 0.50) {
-        return monsterDescription = "Barely Injured";
-    } else if (monsterCurrentHP >= monsterMaxHP * 0.50 
-        && monsterCurrentHP > monsterMaxHP * 0.25) {
-        return monsterDescription = "Injured";
-    } else if (monsterCurrentHP >= monsterMaxHP * 0.25 
-        && monsterCurrentHP > monsterMaxHP * 0.01) {
-        return monsterDescription = "Badly Injured";
-    } else if (monsterCurrentHP >= monsterMaxHP * 0.01) {
-        return monsterDescription = "Near Death";
-    } else {
-        return monsterDescription = "Dead";
-    }
-}
+// function  ConvertMonsterHP (monsterCurrentHP, monsterMaxHP) {
+//     if (monsterMaxHP == monsterCurrentHP) {
+//         return monsterDescription = "Uninjured";
+//     } else if (monsterCurrentHP >= monsterMaxHP * 0.75 
+//         && monsterCurrentHP > monsterMaxHP * 0.50) {
+//         return monsterDescription = "Barely Injured";
+//     } else if (monsterCurrentHP >= monsterMaxHP * 0.50 
+//         && monsterCurrentHP > monsterMaxHP * 0.25) {
+//         return monsterDescription = "Injured";
+//     } else if (monsterCurrentHP >= monsterMaxHP * 0.25 
+//         && monsterCurrentHP > monsterMaxHP * 0.01) {
+//         return monsterDescription = "Badly Injured";
+//     } else if (monsterCurrentHP >= monsterMaxHP * 0.01) {
+//         return monsterDescription = "Near Death";
+//     } else {
+//         return monsterDescription = "Dead";
+//     }
+// }
 
-function SortInitiative (monsterInitNum, playerInitNum) {
+// function SortInitiative (monsterInitNum, playerInitNum) {
     
-}
+// }
 
-function PlayerOrMonster (player,monster) {
-    if (player) {
-        return 
-    }
-}
+// function PlayerOrMonster (player,monster) {
+//     if (player) {
+//         return 
+//     }
+// }

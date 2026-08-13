@@ -17,9 +17,7 @@ html {
     align-items: center;
 }
 
-form {
-    display: inline;
-}
+
 
 nav {
     margin-right: 2.5em;
@@ -272,5 +270,149 @@ img {
     height: 100%;
     object-fit: contain;
     z-index: 2;
+}
+
+.dm-combat-list {
+    outline: rgb(47, 47, 47);
+    outline-width: .1em;
+    outline-style: solid;
+    row-gap: .5em;
+    background-color: rgb(18, 18, 18);
+    padding: 2em;
+    border-radius: .5em;
+    width: 78vw;
+    justify-self: center;
+}
+.dm-combat-list-headers {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+}
+
+
+.dm-list-1 {
+    grid-column-start: 1;
+}
+
+.dm-list-2 {
+    grid-column-start: 2;
+}
+
+.dm-list-3 {
+    grid-column-start: 3;
+}
+
+.dm-list-4 {
+    grid-column-start: 4;
+}
+
+.dm-list-5 {
+    grid-column-start: 5;
+}
+
+.dm-list-6 {
+    grid-column-start: 6;
+}
+
+.player-card-template {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    outline: rgb(72, 72, 187);
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    outline-width: .1em;
+    outline-style: solid;
+    border-radius: .5em;
+    width: 100%;
+    align-items: center;
+}
+
+.monster-card-template {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    outline: rgb(151, 44, 70);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    outline-width: .1em;
+    outline-style: solid;
+    border-radius: .5em;
+    width: 100%;
+    align-items: center;
+}
+
+.x {
+    color: rgb(36, 36, 36);
+    font-size: larger;
+}
+
+.heal-damage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+}
+
+
+
+.heal-max-hp-button {
+    background-color: #0b0b0b;
+    border-radius: .2em;
+    outline-width: .01em;
+    outline-style: solid;
+    padding: .5em;
+    font-size: small;
+    width: fit-content;
+    margin: .5em auto;
+}
+
+.max-hp-button-box {
+    justify-content: center;
+}
+
+#heal, #damage {
+    color: #555555;
+}
+
+.max-hp {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.no-combatants-message {
+    justify-content: center;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.round-box {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2em;
+    gap: 1em;
+}
+
+#display-current-combatant-dm-view {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.reset-dm-view-list-box {
+    justify-content: center;
+    text-align: center;
+    padding-top: 1em;
+}
+
+.hidden {
+    display: none;
 }
 

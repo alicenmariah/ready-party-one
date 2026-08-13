@@ -9,39 +9,50 @@
 
     <title>Initiative Tracker | DM View</title>
 </head>
+
 <body class="background">
+    
+    <!-- Site header that will take you to the Player View -->
     <header class="container">
         <div class="site-branding-box">
             <img src="assets/RP2.svg" alt="">
             <h1>READY PARTY ONE</h1>
         </div>
 
-        
-            
         <nav>
                 <a class="hover-nav" href="player-view.html">Player View</a>
-                
         </nav>
     </header>
+
     <br>
+
     <main>
         <section class="add-stuff">
-            <form action="">
+
+            <!-- You can add a custom Player or a NPC here from D&D 5e SRD -->
+             <!-- Divided into div's by row -->
+            <form id="add-player-form" action="">
                 <article class="add-player player add height">
                     
-
                     <div>
                         
                         <h1 class="add-title player-title">ADD PLAYER</h1>
+
                         <br>
+
                 </div>
+
                 <div class="group-row">
+
+                    <!-- Search bar for NPC Types -->
                     <div class="input-groups">
             
-                        <label for="mon-search">NPC Search</label>
-                        <input type="search" id="mon-search" name="mon-search" placeholder="⌕ D&D 5e SRD">
-                    </div>                
-                    
+                        <label for="npc-search">NPC Search</label>
+                        <input type="search" id="npc-search" name="npc-search" placeholder="⌕ D&D 5e SRD">
+
+                    </div> 
+
+                    <!-- Player Name Input -->
                     <div class="input-groups">
             
                         <label for="player-name">Name</label>
@@ -49,10 +60,13 @@
 
                         
                     </div>
+
                     </div>
 
+                    <!-- Player Intiative, Current HP,and Max HP, and AC Inputs -->
                     <div class="input-groups hp-ac">
-                                                                    <label for="player-init-num">#</label>
+
+                    <label for="player-init-num">#</label>
                     <input type="text" id="player-init-num" name="player-init-num" class="small-input" placeholder="INIT">
 
                     <label for="player-current-hp">HP</label>
@@ -62,16 +76,12 @@
                     <br>
                     <label for="player-ac">AC</label>
                     <input type="text" id="player-ac" name="player-ac" class="small-input">
+
                     </div>
                     
-                    <div class="file-box">
-                            <button type="button" onclick="document.getElementById('player-image').click()">
-                                Add Token Image?
-                            </button>
-                            <input type="file" id="player-image" name="filename" hidden>
-                        </div>
-                    </div>
-                   
+                   <br>
+
+                    <!-- Button to Add Player -->
                     <div class="input-groups add-button">
                     
                         <button type="button" id="add-player-button">+ Player</button><br>
@@ -80,11 +90,14 @@
                    
             
                 </article>
+
                 </form>
             
 
-                <form action="">
-                    
+                <form id="add-monster-form" action="">
+
+                    <!-- You can add a custom Monster or one from the D&D 5e SRD -->
+                    <!-- Divided into div's by row -->
                     <article class="add-monster monster add height">
 
                         <div class="input-groups">
@@ -93,169 +106,156 @@
                         
                     <div class="group-row">
 
-                    
-                    <div class="input-groups">
-            
-                        <label for="mon-search">Monster Search</label>
-                        <input type="search" id="mon-search" name="mon-search" placeholder="⌕ D&D 5e SRD">
-                        
-                    </div>
-
-                    <div class="input-groups">
-                        
-                        <label for="player-name">Name</label>
-                        <input type="text" id="monster-name" name="monster-name">
-                    </div>
-
-                    </div>
-                <div class="group-row">
-                    <div class="input-groups">
-                        <label for="monster-init-num">#</label>
-                        <input type="text" id="monster-init-num" name="monster-init-num" class="small-input">
-                        
-                    <label for="monster-current-hp">HP</label>
-                    <input type="text" id="monster-current-hp" name="monster-current-hp" class="small-input" placeholder="Now">
-
-                    <label for="monster-max-hp">/</label>
-                    <input type="text" id="monster-max-hp" name="monster-max-hp" class="small-input" placeholder="Max">
-                    <label for="monster-ac">AC</label>
-                    <input type="text" id="monster-ac" name="monster-ac" class="small-input">
-                    </div>
-
-                    <div class="input-groups">
-                    <label for="mob-group-check">Group?</label>
-                     <select name="pick-mob-group-color" id="pick-mob-group-color">
-                        <option value="">Group Colors</option>
-                        <option value="red">Red</option>
-                        <option value="blue">Blue</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="green">Green</option>
-                        <option value="orange">Orange</option>
-                        <option value="purple">Purple</option>
-                        <option value="pink">Pink</option>
-                     </select>
-                </div>
-                        
-                    </div>
-                    <div class="file-box">
-                            <button type="button" onclick="document.getElementById('monster-image').click()">
-                                Add Token Image?
-                            </button>
-                            <input type="file" id="monster-image" name="filename" hidden>
+                        <!-- Search bar for Monsters -->
+                        <div class="input-groups">
+                
+                            <label for="mon-search">Monster Search</label>
+                            <input type="search" id="mon-search" name="mon-search" placeholder="⌕ D&D 5e SRD">
+                            
                         </div>
-                     <div class="input-groups add-button add-stuff">
+
+                         <!-- Monster Name Input -->
+                        <div class="input-groups">
+                            
+                            <label for="monster-name">Name</label>
+                            <input type="text" id="monster-name" name="monster-name">
+                        </div>
+
+                    </div>
+
+                    <!-- Monster Intiative, Current HP,and Max HP, and AC Inputs -->
+                    <div class="group-row">
+                        <div class="input-groups">
+                            <label for="monster-init-num">#</label>
+                            <input type="text" id="monster-init-num" name="monster-init-num" class="small-input">
+                            
+                        <label for="monster-current-hp">HP</label>
+                        <input type="text" id="monster-current-hp" name="monster-current-hp" class="small-input" placeholder="Now">
+
+                        <label for="monster-max-hp">/</label>
+                        <input type="text" id="monster-max-hp" name="monster-max-hp" class="small-input" placeholder="Max">
+                        <label for="monster-ac">AC</label>
+                        <input type="text" id="monster-ac" name="monster-ac" class="small-input">
+                    </div>
+                        
+                    </div>
+                    
+                    <!-- Button to Add Monster -->
+                    <div class="input-groups add-button add-stuff">
+
                         <button type="button" id="add-monster-button">+ Monster</button><br>
                     
                     </div>
                     
-
                 </article>
-                </form>
+
+            </form>
+
         </section>
 
         <section class="combatants">
-            <div id="player-card"></div>
-            <div id="monster-card"></div>
-
-        </section>
             
-                <form action="">
-                    <article class="player-init-item add-player mon-play hidden" id="player-card-template">
+            <article>
+            
+            <!-- This will display when there are no Combatants to display in the DM view -->
+            <div class="no-combatants-message hidden">
+                <p>No Combatants</p>
+            </div>
 
-                        <div class="token-frame">
-                            <img class="token-image" src="" alt="">
-                            <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
-                        </div>                        
+            <!-- This will change the current player, and display the name of the current combatant-->
+            <div class="round-box hidden">
+                <button type="button" id="previous-combatant">Back</button>
+                <p id="display-current-combatant-dm-view"></p>
+                <button type="button" id="next-combatant">Next</button>
+            </div>
 
-                        <p>#</p>
-                        <p>Player Name:</p>
-                        <p>AC:</p>
-                        <p>Current HP:</p>
-                        <p>Max HP:</p>
+            <!-- This will reset the Initiative list-->
+            <div class="reset-dm-view-list-box hidden">
+                <button type="button" id="reset-dm-view-list">Reset</button>
+            </div>
 
-                            <div class="pick-condition">
-                            <select name="pick-condition" id="player-condition">
-                                <option value="">Add Condition?</option>
-                                <option value="blinded">Blinded</option>
-                                <option value="charmed">Charmed</option>
-                                <option value="deafened">Deafened</option>
-                                <option value="frightened">Frightened</option>
-                                <option value="grappled">Grappled</option>
-                                <option value="invisible">Invisible</option>
-                                <option value="paralyzed">Paralyzed</option>
-                                <option value="petrified">Petrified</option>
-                                <option value="poisoned">Poisoned</option>
-                                <option value="prone">Prone</option>
-                                <option value="restrained">Restrained</option>
-                                <option value="stunned">Stunned</option>
-                                <option value="unconscious">Unconscious</option>
-                                <option value="dead">Dead</option>
-                            </select>
+            <!-- This is the start of the DM Initiative list, originally I had this setup -->
+            <!-- as invidual cards in rows like player view but it seemed unnecessary -->
+            <div class="dm-combat-list add-player hidden">
 
-                            <div class="condition-row">
-                                <p>Current Conditions:</p>
-                                <div class="condition-box" id="player-condition-box"></div>
-                            </div>
+                <div class="dm-combat-list-headers">
+                    <p class="dm-list-1">Initiative</p>
+                    <p class="dm-list-2">Name</p>
+                    <p class="dm-list-3">Armour Class</p>
+                    <p class="dm-list-4">HP</p>
+                    <p class="dm-list-5">Damage/Heal</p>
+                    <p class="dm-list-6">Delete?</p>
+                </div>
+                <br>
+                <hr>
 
-                            <section class="init-add-buttons">
-                                <input type="button" id="update-init" value="Update">
-                            </section>
+        <!-- This is the player row template for the DM view Init list -->
+       <div class="player-card-template hidden">
+
+            <p class="dm-list-1 player-init">11</p>
+
+            <p class="dm-list-2 player-name">Ally</p>
+
+            <p class="dm-list-3 player-ac">11</p>
+
+            <p class="dm-list-4 player-hp">
+                <span class="player-current-hp">10 /</span>
+                <span class="player-max-hp max-hp">10</span>
+            </p>
+
+            <!-- Update HP, heal/damage and max heal buttons -->
+            <div class="dm-list-5">
+                <form>
+                    <p class="heal-max-hp-button">Max</p>
+
+                    <input type="text" name="adjust-player-health" class="small-input adjust-player-health">
+                </form>
+
+                <div class="heal-damage">
+                    <p class="heal"><strong>+</strong></p>
+                    <p class="damage"><strong>---</strong></p>
+                </div>
+            </div>
+
+            <p class="dm-list-6 x delete-player">
+                <strong>X</strong>
+            </p>
+        </div>
+                <!-- This is the monster row template for the DM view Init list -->
+               <div class="monster-card-template hidden">
+        
+                    <p class="dm-list-1 monster-init">12</p>
+
+                    <p class="dm-list-2 monster-name">Goblin</p>
+
+                    <p class="dm-list-3 monster-ac">11</p>
+
+                    <p class="dm-list-4 monster-hp">
+                        <span class="monster-current-hp">10 /</span>
+                        <span class="monster-max-hp max-hp">10</span>
+                    </p>
+
+                    <!-- Update HP, heal/damage and max heal buttons -->
+                    <div class="dm-list-5">
+                        <form>
+                            <p class="heal-max-hp-button">Max</p>
+
+                            <input type="text" name="adjust-monster-health" class="small-input adjust-monster-health">
+    
+                        </form>
+
+                        <div class="heal-damage">
+                            <p class="heal"><strong>+</strong></p>
+                            <p class="damage"><strong>---</strong></p>
                         </div>
+                    </div>
 
-                    </article>
-<form action="">
-    <article class="custom-monster-init-item add-monster mon-play hidden" id="monster-card-template">
-
-        <div class="hp-group">
-            <p>Monster Name:</p>
-            <img
-                class="frame-placeholder"
-                src="assets/frame-placeholder.svg"
-                alt="Monster token"
-            >
-        </div>
-
-        <div class="hp-group">
-            <p>#</p>
-            <p>AC:</p>
-            <p>Group:</p>
-        </div>
-
-        <div class="hp-group">
-            <p>Current HP:</p>
-            <p>Max HP:</p>
-        </div>
-
-        <div class="condition-controls">
-            <select name="monster-condition" id="monster-condition">
-                <option value="">Add Condition?</option>
-                <option value="blinded">Blinded</option>
-                <option value="charmed">Charmed</option>
-                <option value="deafened">Deafened</option>
-                <option value="frightened">Frightened</option>
-                <option value="grappled">Grappled</option>
-                <option value="invisible">Invisible</option>
-                <option value="paralyzed">Paralyzed</option>
-                <option value="petrified">Petrified</option>
-                <option value="poisoned">Poisoned</option>
-                <option value="prone">Prone</option>
-                <option value="restrained">Restrained</option>
-                <option value="stunned">Stunned</option>
-                <option value="unconscious">Unconscious</option>
-                <option value="dead">Dead</option>
-            </select>
-
-            <input
-                type="button"
-                id="update-monster"
-                value="Update"
-            >
-        </div>
-
-    </article>
-</form>
-            
-
+                    <p class="dm-list-6 x delete-monster">
+                        <strong>X</strong>
+                    </p>
+                </div>
+                </div>
+            </article>
         
 
     </main>

@@ -1,110 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="reset.css"> -->
-     <link rel="stylesheet" href="styles.css">
-     <link rel="stylesheet" href="player-view.css">
-
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="player-view.css">
     <title>Initiative Tracker | Player View</title>
 </head>
 
-<div>
-    <a href="index.html"><img class="x" src="/assets/x.svg"></a>
-</div>
-
 <body>
+    <!-- I added this x to act as a way to get back to the dm view if I needed to without  -->
+    <!-- adding a menu bar to this screen beacuse I intend to have this up fullscreen  -->
+    <!-- on a tv behind me during D&D sessions. -->
+    <a class="player-x" href="index.html"><img class="x" src="/assets/x.svg" alt="Close"></a>
 
-    <div class="player-header">
-        <h1 class="title">Who's Turn Is It?</h1>
-        <h2 class="current-combatant">It is <span class="ur-up-player ur-up-monster">Ally's</span> Turn!</h2>
-    </div>
-    <div class="arrow-bar">
-        <h1 class="arrow">⬇</h1>
-    </div>
-    <div class="select-bar select-bar-row-1">
+    <!-- This will display when there are no combatants -->
+    <div class="no-combatants-message hidden"><p>No Combatants</p></div>
 
-    
+    <section class="player-view-section">
 
-    <div class="combat-box add-player player-box">
-    <h1>Player Name</h1>
-    <div class="token-frame">
-    <img class="token-image" src="assets/your-player-image.png" alt="Player">
-    <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
-</div>
-    <br>
-    <div class="major-stats">
-    <h3 class="ac-card-num">12</h3> 
-    <h2>70/100</h2>
-    </div>
-    <br>
-    <label for="HP"></label>
-    <meter value="70" id="HP" min="0" max="100" low="33" high="66" optimum="80" placeholder="70/100"></meter>
+        <!-- Bar for the top arrow that will be hidden when the current combatant is on arrow-bar-2 -->
+        <div class="arrow-bar">
+            <h1 class="arrow arrow-1 hidden">⬇</h1>
+        </div>
 
-    <br>
+        <!-- Player View Card Template for Players -->
+        <div class="add-player player-box-template hidden">
+            <h1>Player Name</h1>
 
-    <div class="condition-box">
-        <!-- <span class="condition-icon blinded">🙈 Blinded</span>
-        <span class="condition-icon charmed">💖 Charmed</span>
-        <span class="condition-icon deafened">🙉 Deafened</span>
-        <span class="condition-icon frightened">😨 Frightened</span>
-        <span class="condition-icon grappled">🤼 Grappled</span>
-        <span class="condition-icon incapacitated">🚫 Incapacitated</span>
-        <span class="condition-icon invisible">🫥 Invisible</span>
-        <span class="condition-icon paralyzed">⚡ Paralyzed</span>
-        <span class="condition-icon petrified">🗿 Petrified</span>
-        <span class="condition-icon poisoned">🧪 Poisoned</span> -->
-        <span class="condition-icon prone">⬇️ Prone</span>
-        <span class="condition-icon restrained">⛓️ Restrained</span>
-        <span class="condition-icon stunned">💫 Stunned</span>
-        <span class="condition-icon unconscious">💤 Unconscious</span>
-        <span class="condition-icon dead">❌ Dead</span>
-        <!-- <span class="condition-icon dead">✅ No Conditions</span> -->
-    </div>
-    </div>
+            <div class="major-stats">
+                <h3 class="ac-card-num">12</h3>
+                <h2>70/100</h2>
+            </div>
 
-    <div class="selector-bar selector-bar-row-2">
+            <label for="HP"></label>
+            <meter value="70" id="HP" min="0" max="100" low="33" high="66" optimum="80"></meter>
+        </div>
 
-    </div>
+        <!-- Bar for the 2nd row arrow that will be hidden when the current combatant is on arrow-bar-1 -->
+        <div class="arrow-bar arror-bar-row-2">
+            <h1 class="arrow arrow-2 hidden">⬇</h1>
+        </div>
 
-    <div class="combat-box add-monster player-box">
-    <h1>Monster Name</h1>
-    <div class="token-frame">
-    <img class="token-image" src="assets/your-player-image.png" alt="Player">
-    <img class="frame-placeholder" src="assets/frame-placeholder.svg" alt="">
-</div>
-    <br>
-    <div class="major-stats">
-    <h3 class="ac-card-num">?</h3> 
-    <h2>BARELY INJURED</h2>
-    </div>
-    <br>
-        <div class="condition-box">
-        <!-- <span class="condition-icon blinded">🙈 Blinded</span>
-        <span class="condition-icon charmed">💖 Charmed</span>
-        <span class="condition-icon deafened">🙉 Deafened</span>
-        <span class="condition-icon frightened">😨 Frightened</span>
-        <span class="condition-icon grappled">🤼 Grappled</span>
-        <span class="condition-icon incapacitated">🚫 Incapacitated</span>
-        <span class="condition-icon invisible">🫥 Invisible</span>
-        <span class="condition-icon paralyzed">⚡ Paralyzed</span>
-        <span class="condition-icon petrified">🗿 Petrified</span>
-        <span class="condition-icon poisoned">🧪 Poisoned</span> -->
-        <!-- <span class="condition-icon prone">⬇️ Prone</span>
-        <span class="condition-icon restrained">⛓️ Restrained</span>
-        <span class="condition-icon stunned">💫 Stunned</span>
-        <span class="condition-icon unconscious">💤 Unconscious</span>
-        <span class="condition-icon dead">❌ Dead</span> -->
-        <span class="condition-icon dead">✅ No Conditions</span>
-    </div>
-    </div>
+        <!-- Player View Card Template for Monsters -->
+        <div class="add-monster monster-box-template hidden">
+            <h1>Monster Name</h1>
 
-    </div>
+            <div class="major-stats">
+                <h3 class="ac-card-num">?</h3>
+                <h2>BARELY INJURED</h2>
+            </div>
+        </div>
 
-    <p></p>
-</div>
-</div>
-
+    </section>
 </body>
+
 </html>
