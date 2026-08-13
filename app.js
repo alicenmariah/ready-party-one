@@ -10,6 +10,10 @@ const combatListDM = document.querySelector(".dm-combat-list");
 const savedCombatList = localStorage.getItem("combatListDM");
 
 
+const playerForm = document.getElementById("add-player-form");
+
+const monsterForm = document.getElementById("add-monster-form");
+
 
 
 //AI Helped, not entirely certain how innerhtml works
@@ -144,6 +148,12 @@ addMonster.addEventListener('click', function(event) {
             // Stops site from refreshing the page
             event.preventDefault();
 
+            //Don't add the monster unless all required fields are filled in
+            if (!monsterForm.checkValidity()) {
+                monsterForm.reportValidity();
+                return;
+            }
+
             //All the stuff I need to add from form
             const formData = new FormData(addMonster.form);
             const monsterName = formData.get('monster-name');
@@ -206,6 +216,12 @@ addMonster.addEventListener('click', function(event) {
 addPlayer.addEventListener('click', function(event) {
             // Stops site from refreshing the page
             event.preventDefault();
+
+            //Don't add the player unless all required fields are filled in
+            if (!playerForm.checkValidity()) {
+                playerForm.reportValidity();
+                return;
+            }
 
             //All the stuff I need to add from form
             const formData = new FormData(addPlayer.form);
