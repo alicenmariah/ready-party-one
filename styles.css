@@ -17,8 +17,6 @@ html {
     align-items: center;
 }
 
-
-
 nav {
     margin-right: 2.5em;
     font-size: large;
@@ -27,10 +25,6 @@ nav {
 nav a {
   text-decoration: none;
   color: inherit;
-}
-
-.hover-nav:hover{
-    color: rgb(187, 66, 66);
 }
 
 .container {
@@ -46,14 +40,11 @@ nav a {
     border-bottom-style: solid;
     border-left-style: none;
     border-width: .02em;
-    
-
 }
 
 header {
     display: flex;
     align-items: center;
-
 }
 
 
@@ -67,8 +58,6 @@ h1, h2, h3 {
     padding: .5em;
     margin: 0em;
 }
-
-
 
 .monster-title  {
     color:  rgb(187, 66, 66);
@@ -103,20 +92,6 @@ h1, h2, h3 {
     gap: .5em;
     line-height: 1em;
     
-}
-
-.custom-monster-init-item, .player-init-item {
-    
-    padding: 1em;
-    margin: 1.5em;
-    border-radius: .5em;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    justify-self: center;
-    align-content: center;
-    width: 77vw;
-    align-items: center;
 }
 
 .monster {
@@ -179,12 +154,6 @@ form {
     line-height: 2em;
 }
 
-#test {
-    display: grid;
-    grid-template-rows: 1em;
-
-}
-
 img {
     height: 4em;
     width: 4em;
@@ -197,8 +166,6 @@ img {
         min-width: 0;
         margin: 1rem;
     }
-
-
 
     .input-groups {
         flex-wrap: wrap;
@@ -219,11 +186,6 @@ img {
     }
 }
 
-.pick-condition {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
 
 .init-add-buttons {
     margin: 0;
@@ -245,32 +207,6 @@ img {
     
 }
 
-.token-frame {
-    position: relative;
-    display: inline-block;
-    width: 3em;
-    height: 3em;
-}
-
-.token-image {
-    position: absolute;
-    top: 0.25em;
-    left: 0.25em;
-    width: calc(100% - 0.5em);
-    height: calc(100% - 0.5em);
-    object-fit: cover;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.frame-placeholder {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 2;
-}
 
 .dm-combat-list {
     outline: rgb(47, 47, 47);
@@ -282,12 +218,20 @@ img {
     border-radius: .5em;
     width: 78vw;
     justify-self: center;
+    margin-bottom: 4em;
 }
 .dm-combat-list-headers {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
     justify-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .dm-combat-list-headers,
+    .dm-list-divider {
+        display: none;
+    }
 }
 
 
@@ -326,7 +270,7 @@ img {
     margin-top: 1em;
     margin-bottom: .5em;
     outline-width: .1em;
-    outline-style: solid;
+    outline-style: none;
     border-radius: .5em;
     width: 100%;
     align-items: center;
@@ -343,16 +287,13 @@ img {
     margin-top: 1em;
     margin-bottom: .5em;
     outline-width: .1em;
-    outline-style: solid;
+    outline-style: none;
     border-radius: .5em;
     width: 100%;
     align-items: center;
 }
 
-.x {
-    color: rgb(36, 36, 36);
-    font-size: larger;
-}
+
 
 .heal-damage {
     display: grid;
@@ -372,14 +313,16 @@ img {
     font-size: small;
     width: fit-content;
     margin: .5em auto;
+    cursor: pointer;
 }
 
 .max-hp-button-box {
     justify-content: center;
 }
 
-#heal, #damage {
+.heal, .damage {
     color: #555555;
+    cursor: pointer;
 }
 
 .max-hp {
@@ -394,7 +337,9 @@ img {
 }
 
 .round-box {
+    display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
     text-align: center;
     padding-top: 2em;
@@ -402,17 +347,40 @@ img {
 }
 
 #display-current-combatant-dm-view {
-    padding-left: 2em;
+
     padding-right: 2em;
+    font-size: larger;
 }
 
 .reset-dm-view-list-box {
     justify-content: center;
     text-align: center;
     padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .hidden {
     display: none;
 }
 
+.x {
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    align-items: center;
+}
+
+.x img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.current-turn {
+    outline-style: solid;
+}
+
+#display-current-round {
+    padding-left: 2em;
+    font-size: larger;
+}

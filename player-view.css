@@ -3,14 +3,35 @@ meter {
     width: 11em;
 }
 
+.player-view-combat-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    column-gap: 1em;
+    row-gap: 6em;
+}
+
 .player-box-template, .monster-box-template {
     width: 15vw;
     min-width: 220px;
-    height: auto;
+    height: 14em;
     border-radius: .5em;
     padding: 1em;
     text-align: center;
     outline-width: .2em;
+
+}
+
+.player-box-template.current-turn {
+    outline-color: rgb(34, 16, 232);
+    box-shadow: 0 0 2em .2em rgba(34, 16, 232, 0.7);
+}
+
+.monster-box-template.current-turn {
+    outline-color: rgb(202, 17, 17);
+    box-shadow: 0 0 1.5em .3em rgba(202, 17, 17, 0.7);
 }
 
 .x {
@@ -34,31 +55,6 @@ meter {
     display: inline-block;
 }
 
-.condition-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    padding: .3em;
-    padding-top: .5em;
-    justify-content: center;
-}
-
-.condition-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    outline: .1em solid rgb(83, 82, 82);
-    padding: .4em;
-    background-color: rgb(18, 18, 18);
-    border-radius: .5em;
-    white-space: nowrap;
-}
-
-.pick-condition {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
 
 .init-add-buttons {
     margin: 0;
@@ -91,22 +87,10 @@ meter {
     color: rgb(187, 66, 66);
 }
 
-.arrow-bar {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    width: 100%;
-    align-items: center;
-    /* to test arrow bar's height, when I was hiding the
-    2nd row's arrow the bar would collapse */
-    /* outline: 1px solid red; */
-    height: 6em;
-}
-
 .arrow {
+    position: absolute;
     font-size: 4em;
-    grid-column: 1;
     text-align: center;
-    align-content: center;
 }
 
 .player-x {
@@ -114,6 +98,58 @@ meter {
 }
 
 .player-view-section {
+    position: relative;
+    padding-top: 6em;
     padding-left: 4em;
     padding-right: 4em;
+}
+
+.current-round-player-view {
+    justify-self: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .arrow {
+        display: none;
+    }
+
+    .player-view-combat-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .arrow {
+        display: none;
+    }
+
+    .player-view-combat-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .player-view-combat-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .player-view-section {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
+    .player-view-combat-list {
+        grid-template-columns: 1fr;
+    }
+
+    .player-box-template, .monster-box-template {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+.monster-description {
+    font-size: 1.7em;
 }

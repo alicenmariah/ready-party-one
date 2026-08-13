@@ -29,7 +29,7 @@
     <main>
         <section class="add-stuff">
 
-            <!-- You can add a custom Player or a NPC here from D&D 5e SRD -->
+            <!-- Add a custom Player or a NPC here from D&D 5e SRD -->
              <!-- Divided into div's by row -->
             <form id="add-player-form" action="">
                 <article class="add-player player add height">
@@ -56,7 +56,7 @@
                     <div class="input-groups">
             
                         <label for="player-name">Name</label>
-                        <input type="text" id="player-name" name="player-name">
+                        <input type="text" id="player-name" class="player-name" name="player-name">
 
                         
                     </div>
@@ -67,15 +67,15 @@
                     <div class="input-groups hp-ac">
 
                     <label for="player-init-num">#</label>
-                    <input type="text" id="player-init-num" name="player-init-num" class="small-input" placeholder="INIT">
+                    <input type="number" id="player-init-num" name="player-init-num" class="player-init-num small-input" placeholder="INIT">
 
                     <label for="player-current-hp">HP</label>
-                    <input type="text" id="player-current-hp" name="player-current-hp" class="small-input" placeholder="Now">
+                    <input type="number" id="player-current-hp" name="player-current-hp" class="player-current-hp small-input" placeholder="Now">
                     <label for="player-max-hp">/</label>
-                    <input type="text" id="player-max-hp" name="player-max-hp" class="small-input" placeholder="Max">
+                    <input type="number" id="player-max-hp" name="player-max-hp" class="player-max-hp small-input" placeholder="Max">
                     <br>
                     <label for="player-ac">AC</label>
-                    <input type="text" id="player-ac" name="player-ac" class="small-input">
+                    <input type="number" id="player-ac" name="player-ac" class="player-ac small-input">
 
                     </div>
                     
@@ -96,7 +96,7 @@
 
                 <form id="add-monster-form" action="">
 
-                    <!-- You can add a custom Monster or one from the D&D 5e SRD -->
+                    <!-- Add a custom Monster or one from the D&D 5e SRD -->
                     <!-- Divided into div's by row -->
                     <article class="add-monster monster add height">
 
@@ -118,7 +118,7 @@
                         <div class="input-groups">
                             
                             <label for="monster-name">Name</label>
-                            <input type="text" id="monster-name" name="monster-name">
+                            <input type="text" id="monster-name" class="monster-name" name="monster-name">
                         </div>
 
                     </div>
@@ -127,15 +127,15 @@
                     <div class="group-row">
                         <div class="input-groups">
                             <label for="monster-init-num">#</label>
-                            <input type="text" id="monster-init-num" name="monster-init-num" class="small-input">
-                            
+                            <input type="number" id="monster-init-num" class="monster-init-num small-input" name="monster-init-num">
+
                         <label for="monster-current-hp">HP</label>
-                        <input type="text" id="monster-current-hp" name="monster-current-hp" class="small-input" placeholder="Now">
+                        <input type="number" id="monster-current-hp" name="monster-current-hp" class="monster-current-hp small-input" placeholder="Now">
 
                         <label for="monster-max-hp">/</label>
-                        <input type="text" id="monster-max-hp" name="monster-max-hp" class="small-input" placeholder="Max">
+                        <input type="number" id="monster-max-hp" name="monster-max-hp" class="monster-max-hp small-input" placeholder="Max">
                         <label for="monster-ac">AC</label>
-                        <input type="text" id="monster-ac" name="monster-ac" class="small-input">
+                        <input type="number" id="monster-ac" name="monster-ac" class="monster-ac small-input">
                     </div>
                         
                     </div>
@@ -164,10 +164,12 @@
 
             <!-- This will change the current player, and display the name of the current combatant-->
             <div class="round-box hidden">
+                
                 <button type="button" id="previous-combatant">Back</button>
-                <p id="display-current-combatant-dm-view"></p>
+                <p id="display-current-round"></p> <br> <p id="display-current-combatant-dm-view"></p>
                 <button type="button" id="next-combatant">Next</button>
             </div>
+
 
             <!-- This will reset the Initiative list-->
             <div class="reset-dm-view-list-box hidden">
@@ -187,7 +189,7 @@
                     <p class="dm-list-6">Delete?</p>
                 </div>
                 <br>
-                <hr>
+                <hr class="dm-list-divider">
 
         <!-- This is the player row template for the DM view Init list -->
        <div class="player-card-template hidden">
@@ -200,7 +202,7 @@
 
             <p class="dm-list-4 player-hp">
                 <span class="player-current-hp">10 /</span>
-                <span class="player-max-hp max-hp">10</span>
+                <span class="player-max-hp max-hp">/ 10</span>
             </p>
 
             <!-- Update HP, heal/damage and max heal buttons -->
@@ -208,7 +210,7 @@
                 <form>
                     <p class="heal-max-hp-button">Max</p>
 
-                    <input type="text" name="adjust-player-health" class="small-input adjust-player-health">
+                    <input type="number" name="adjust-player-health" class="small-input adjust-player-health">
                 </form>
 
                 <div class="heal-damage">
@@ -217,9 +219,9 @@
                 </div>
             </div>
 
-            <p class="dm-list-6 x delete-player">
-                <strong>X</strong>
-            </p>
+                <div class="dm-list-6 x delete-player delete">
+                    <img src="/assets/x.svg" alt="Delete Player">
+                </div>
         </div>
                 <!-- This is the monster row template for the DM view Init list -->
                <div class="monster-card-template hidden">
@@ -240,7 +242,7 @@
                         <form>
                             <p class="heal-max-hp-button">Max</p>
 
-                            <input type="text" name="adjust-monster-health" class="small-input adjust-monster-health">
+                            <input type="number" name="adjust-monster-health" class="small-input adjust-monster-health">
     
                         </form>
 
@@ -250,9 +252,9 @@
                         </div>
                     </div>
 
-                    <p class="dm-list-6 x delete-monster">
-                        <strong>X</strong>
-                    </p>
+                    <div class="dm-list-6 x delete-monster delete">
+                        <img src="/assets/x.svg" alt="Delete Monster">
+                    </div>
                 </div>
                 </div>
             </article>

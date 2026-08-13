@@ -14,16 +14,17 @@
     <!-- adding a menu bar to this screen beacuse I intend to have this up fullscreen  -->
     <!-- on a tv behind me during D&D sessions. -->
     <a class="player-x" href="index.html"><img class="x" src="/assets/x.svg" alt="Close"></a>
+    <h1 class="current-round-player-view"></h1>
 
     <!-- This will display when there are no combatants -->
     <div class="no-combatants-message hidden"><p>No Combatants</p></div>
 
     <section class="player-view-section">
 
-        <!-- Bar for the top arrow that will be hidden when the current combatant is on arrow-bar-2 -->
-        <div class="arrow-bar">
-            <h1 class="arrow arrow-1 hidden">⬇</h1>
-        </div>
+        <!-- Single arrow that follows the current combatant's card wherever it wraps to -->
+        <h1 class="arrow current-turn-arrow hidden">⬇</h1>
+
+        <div class="player-view-combat-list"></div>
 
         <!-- Player View Card Template for Players -->
         <div class="add-player player-box-template hidden">
@@ -38,22 +39,19 @@
             <meter value="70" id="HP" min="0" max="100" low="33" high="66" optimum="80"></meter>
         </div>
 
-        <!-- Bar for the 2nd row arrow that will be hidden when the current combatant is on arrow-bar-1 -->
-        <div class="arrow-bar arror-bar-row-2">
-            <h1 class="arrow arrow-2 hidden">⬇</h1>
-        </div>
-
         <!-- Player View Card Template for Monsters -->
         <div class="add-monster monster-box-template hidden">
             <h1>Monster Name</h1>
 
             <div class="major-stats">
                 <h3 class="ac-card-num">?</h3>
-                <h2>BARELY INJURED</h2>
+                <h2 class="monster-description">BARELY INJURED</h2>
             </div>
         </div>
 
     </section>
 </body>
+
+<script src="player-view.js"></script>
 
 </html>
