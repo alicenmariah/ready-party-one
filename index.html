@@ -46,11 +46,16 @@
 
                     <!-- Search bar for NPC Types -->
                     <div class="input-groups">
-            
-                        <label for="npc-search">NPC Search</label>
-                        <input type="search" id="npc-search" name="npc-search" placeholder="⌕ D&D 5e SRD">
 
-                    </div> 
+                        <label for="npc-search"></label>
+                        <div class="search-input-box">
+                            <input type="search" id="npc-search" name="npc-search" placeholder="⌕ D&D 5e SRD">
+                            <button type="button" id="npc-search-clear" class="clear-search-button" aria-label="Clear search">×</button>
+                            <ul id="npc-search-results" class="search-results hidden"></ul>
+                        </div>
+                        <button type="button" id="npc-search-button">Search</button>
+
+                    </div>
 
                     <!-- Player Name Input -->
                     <div class="input-groups">
@@ -64,22 +69,23 @@
                     </div>
 
                     <!-- Player Intiative, Current HP,and Max HP, and AC Inputs -->
-                    <div class="input-groups hp-ac">
-
-                    <label for="player-init-num">#</label>
-                    <input type="number" step="0.0" id="player-init-num" name="player-init-num" class="player-init-num small-input required" placeholder="INIT" required>
-
-                    <label for="player-current-hp">HP</label>
-                    <input type="number" id="player-current-hp" name="player-current-hp" class="player-current-hp small-input required" placeholder="Now" required>
-                    <label for="player-max-hp">/</label>
-                    <input type="number" id="player-max-hp" name="player-max-hp" class="player-max-hp small-input required" placeholder="Max" required>
-                    <br>
-                    <label for="player-ac">AC</label>
-                    <input type="number" id="player-ac" name="player-ac" class="player-ac small-input required" required>
-
+                    <div class="group-row">
+                        <div class="input-groups">
+                            <label for="player-init-num">#</label>
+                            <input type="number" step="0.5" id="player-init-num" name="player-init-num" class="player-init-num small-input required" placeholder="INIT" required>
+                        <div class="input-groups hp-ac"></div>
+                        <label for="player-current-hp">HP</label>
+                        <input type="number" id="player-current-hp" name="player-current-hp" class="player-current-hp small-input required" placeholder="Now" required>
+                        <label for="player-max-hp">/</label>
+                        <input type="number" id="player-max-hp" name="player-max-hp" class="player-max-hp small-input required" placeholder="Max" required>
+                        </div>
+                        <div class="input-groups hp-ac">
+                        <label for="player-ac">AC</label>
+                        <input type="number" id="player-ac" name="player-ac" class="player-ac small-input required" required>
+                        </div>
                     </div>
                     
-                   <br>
+                   
 
                     <!-- Button to Add Player -->
                     <div class="input-groups add-button">
@@ -108,10 +114,15 @@
 
                         <!-- Search bar for Monsters -->
                         <div class="input-groups">
-                
-                            <label for="mon-search">Monster Search</label>
-                            <input type="search" id="mon-search" name="mon-search" placeholder="⌕ D&D 5e SRD">
-                            
+
+                            <label for="mon-search"></label>
+                            <div class="search-input-box">
+                                <input type="search" id="mon-search" name="mon-search" placeholder="⌕ D&D 5e SRD">
+                                <button type="button" id="mon-search-clear" class="clear-search-button" aria-label="Clear search">×</button>
+                                <ul id="monster-search-results" class="search-results hidden"></ul>
+                            </div>
+                            <button type="button" id="mon-search-button">Search</button>
+
                         </div>
 
                          <!-- Monster Name Input -->
@@ -127,15 +138,17 @@
                     <div class="group-row">
                         <div class="input-groups">
                             <label for="monster-init-num">#</label>
-                            <input type="number" id="monster-init-num" class="monster-init-num small-input required" name="monster-init-num" required>
-
+                            <input type="number" step="0.5" id="monster-init-num" class="monster-init-num small-input required" name="monster-init-num" required>
+                        <div class="input-groups hp-ac"></div>
                         <label for="monster-current-hp">HP</label>
                         <input type="number" id="monster-current-hp" name="monster-current-hp" class="monster-current-hp small-input required" placeholder="Now" required>
-
                         <label for="monster-max-hp">/</label>
                         <input type="number" id="monster-max-hp" name="monster-max-hp" class="monster-max-hp small-input required" placeholder="Max" required>
+                        </div>
+                        <div class="input-groups hp-ac">
                         <label for="monster-ac">AC</label>
                         <input type="number" id="monster-ac" name="monster-ac" class="monster-ac small-input required" required>
+                        </div>
                     </div>
                         
                     </div>
@@ -189,7 +202,6 @@
                     <p class="dm-list-6">Delete?</p>
                 </div>
                 <br>
-                <hr class="dm-list-divider">
 
         <!-- This is the player row template for the DM view Init list -->
        <div class="player-card-template hidden">
@@ -210,7 +222,7 @@
                 <form>
                     <p class="heal-max-hp-button">Max</p>
 
-                    <input type="number" name="adjust-player-health" class="small-input adjust-player-health">
+                    <input type="number" min="0" name="adjust-player-health" class="small-input adjust-player-health">
                 </form>
 
                 <div class="heal-damage">
@@ -230,8 +242,10 @@
 
                     <p class="dm-list-2 monster-name">Goblin</p>
 
-                    <p class="dm-list-3 monster-ac">11</p>
-
+                    <div class="dm-list-3 monster-ac-box">
+                        <p class="monster-ac">?</p>
+                        <p class="show-monster-ac-button">Toggle</p>
+                    </div>
                     <p class="dm-list-4 monster-hp">
                         <span class="monster-current-hp">10 /</span>
                         <span class="monster-max-hp max-hp">10</span>
@@ -242,7 +256,7 @@
                         <form>
                             <p class="heal-max-hp-button">Max</p>
 
-                            <input type="number" name="adjust-monster-health" class="small-input adjust-monster-health">
+                            <input type="number" min="0" name="adjust-monster-health" class="small-input adjust-monster-health">
     
                         </form>
 
@@ -262,7 +276,7 @@
 
     </main>
 </body>
-
+<script src="dnd-api.js"></script>
 <script src="app.js"></script>
 
 </html>

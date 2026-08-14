@@ -76,7 +76,7 @@ h1, h2, h3 {
 }
 
 .small-input {
-    width: 3em;
+    width: 4em;
 }
 
 .add-stuff {
@@ -91,7 +91,30 @@ h1, h2, h3 {
     display: flex;
     gap: .5em;
     line-height: 1em;
-    
+}
+
+.search-input-box {
+    position: relative;
+    width: 12em;
+}
+
+.search-input-box input {
+    width: 100%;
+    font-size: 1em;
+}
+
+.clear-search-button {
+    position: absolute;
+    top: 50%;
+    right: .3em;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #555555;
+    font-size: 1.1em;
+    line-height: 1em;
+    cursor: pointer;
+    padding: 0 .2em;
 }
 
 .monster {
@@ -196,12 +219,12 @@ img {
 }
 
 .height {
-    height: 29vh;
+    height: 35vh;
 }
 
 @media screen and (max-width: 1300px) {
     .height {
-        height: 40vh;
+        height: 45vh;
     }
 
     
@@ -310,10 +333,14 @@ img {
     outline-width: .01em;
     outline-style: solid;
     padding: .5em;
+    padding-left: .2em;
+    padding-right: .2em;
     font-size: small;
     width: fit-content;
     margin: .5em auto;
     cursor: pointer;
+    color: #555555;
+    outline-color: #424242;
 }
 
 .max-hp-button-box {
@@ -383,4 +410,54 @@ img {
 #display-current-round {
     padding-left: 2em;
     font-size: larger;
+}
+
+.monster-ac-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25em;
+}
+
+.show-monster-ac-button {
+    background-color: #0b0b0b;
+    border-radius: .2em;
+    outline-width: .01em;
+    outline-style: solid;
+    padding: .01em .2em;
+    font-size: small;
+    width: fit-content;
+    margin: .5em auto;
+    cursor: pointer;
+    color: #555555;
+    outline-color: #424242;
+}
+
+.search-results {
+    list-style: none;
+    background-color: #0b0b0b;
+    opacity:90%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    max-height: 10em;
+    overflow-y: auto;
+    font-size: 1em;
+}
+
+.search-results li {
+    padding: .3em .6em;
+    cursor: pointer;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-results li:hover {
+    background-color: #1e1e1e;
 }

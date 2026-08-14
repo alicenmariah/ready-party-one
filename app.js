@@ -116,11 +116,31 @@ document.getElementById("previous-combatant").addEventListener("click", function
     updateCurrentCombatantDisplay();
 });
 
+//Resets the DM Initiative list back to empty
+document.getElementById("reset-dm-view-list").addEventListener("click", function () {
+    combatants.splice(0, combatants.length);
+
+    const cards = combatListDM.querySelectorAll(".player-card-template:not(.hidden), .monster-card-template:not(.hidden)");
+    cards.forEach(function (card) {
+        card.remove();
+    });
+
+    currentTurnIndex = 0;
+    currentRound = 1;
+
+    localStorage.removeItem("combatants");
+    localStorage.removeItem("combatListDM");
+    localStorage.removeItem("currentTurnIndex");
+    localStorage.removeItem("currentRound");
+
+    noCombatants();
+});
+
 
 //Sorts combatants by initiative then saves to local storage
 function sortCombatListDM () {
-    combatants.sort(function (a, b) {
-        return Number(b.init) - Number(a.init);
+    combatants.sort(function (firstCombatant, secondCombatant) {
+        return Number(secondCombatant.init) - Number(firstCombatant.init);
     });
 
     const cards = Array.from(combatListDM.querySelectorAll(".player-card-template, .monster-card-template"));
@@ -169,7 +189,8 @@ addMonster.addEventListener('click', function(event) {
                 init: monsterInit,
                 ac: monsterAC,
                 currentHP: monsterCurrentHP,
-                maxHP: monsterMaxHP
+                maxHP: monsterMaxHP,
+                acRevealed: false
 };
 
 
@@ -190,8 +211,10 @@ addMonster.addEventListener('click', function(event) {
         //DM View Monster Initiative
         monsterDMCard.querySelector(".monster-init").textContent = customMonster.init;
 
-        //DM View Monster Armour Class
         monsterDMCard.querySelector(".monster-ac").textContent = customMonster.ac;
+
+        //Starts hidden from players, so the button offers to show it
+        monsterDMCard.querySelector(".show-monster-ac-button").textContent = "Show";
 
         //DM View Monster Current HP
         monsterDMCard.querySelector(".monster-current-hp").textContent = `${customMonster.currentHP} / `;
@@ -207,6 +230,8 @@ addMonster.addEventListener('click', function(event) {
         combatListDM.appendChild(monsterDMCard);
 
         sortCombatListDM();
+
+        monsterForm.reset();
 
         });
 
@@ -276,6 +301,8 @@ addPlayer.addEventListener('click', function(event) {
 
         sortCombatListDM();
 
+        playerForm.reset();
+
         });
 
 
@@ -288,7 +315,7 @@ addPlayer.addEventListener('click', function(event) {
     const card = deleteTrigger.closest(".player-card-template, .monster-card-template");
     if (!card) return;
 
-    const index = combatants.findIndex(c => c.id === card.dataset.id);
+    const index = combatants.findIndex(combatant => combatant.id === card.dataset.id);
     if (index !== -1) combatants.splice(index, 1);
 
     card.remove();
@@ -306,8 +333,37 @@ combatListDM.addEventListener("submit", (event) => {
 });
 
 
-//AI Helped, had a hard time wrapping my mind around the math logic
-// Heals, damages, or maxes a Combatant's current HP in the DM view
+//AI Helped to target card id's
+//Toggles whether a Monster's AC on Player View
+combatListDM.addEventListener("click", (event) => {
+    const toggleTrigger = event.target.closest(".show-monster-ac-button");
+    if (!toggleTrigger) return;
+
+    const card = toggleTrigger.closest(".monster-card-template");
+    if (!card) return;
+
+    const combatant = combatants.find(combatant => combatant.id === card.dataset.id);
+    if (!combatant) return;
+
+    combatant.acRevealed = !combatant.acRevealed;
+    toggleTrigger.textContent = combatant.acRevealed ? "Hide" : "Show";
+
+    localStorage.setItem("combatants", JSON.stringify(combatants));
+     //AI Helped, not sure how to use Inner HTML
+    localStorage.setItem("combatListDM", combatListDM.innerHTML);
+});
+
+
+//AI Helped to target card id's and math logic sanity check
+combatListDM.addEventListener("input", (event) => {
+    const healthInput = event.target.closest(".adjust-player-health, .adjust-monster-health");
+    if (!healthInput) return;
+
+    if (Number(healthInput.value) < 0) {
+        healthInput.value = "0";
+    }
+});
+
 combatListDM.addEventListener("click", (event) => {
     const healTrigger = event.target.closest(".heal");
     const damageTrigger = event.target.closest(".damage");
@@ -317,7 +373,7 @@ combatListDM.addEventListener("click", (event) => {
     const card = event.target.closest(".player-card-template, .monster-card-template");
     if (!card) return;
 
-    const combatant = combatants.find(c => c.id === card.dataset.id);
+    const combatant = combatants.find(combatant => combatant.id === card.dataset.id);
     if (!combatant) return;
 
     const currentHPSpan = card.querySelector(".player-current-hp, .monster-current-hp");
@@ -332,6 +388,7 @@ combatListDM.addEventListener("click", (event) => {
     } else {
         const amount = Number(healthInput.value) || 0;
         if (amount === 0) return;
+        if (amount < 0) return;
 
         if (healTrigger) {
             currentHP = Math.min(currentHP + amount, maxHP);

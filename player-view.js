@@ -80,8 +80,7 @@ function renderPlayerView () {
             //Player View Monster Name
             card.querySelector("h1").textContent = combatant.name;
 
-            //Player View Monster Armour Class
-            card.querySelector(".ac-card-num").textContent = combatant.ac;
+            card.querySelector(".ac-card-num").textContent = combatant.acRevealed ? combatant.ac : "?";
 
             //Player View Monster HP Description
             card.querySelector(".major-stats h2").textContent =
@@ -120,13 +119,17 @@ function renderPlayerView () {
     arrow.style.left = `${cardBox.left - sectionBox.left + cardBox.width / 2 - arrow.offsetWidth / 2}px`;
     arrow.style.top = `${cardBox.top - sectionBox.top - arrow.offsetHeight}px`;
 }
-// !! AI Helped, had issues linking DM and Player views
+// !! AI Helped, had issues linking DM and Player views and sizing Player View
 renderPlayerView();
 
 window.addEventListener("storage", function (event) {
     if (event.key === "combatants" || event.key === "currentTurnIndex" || event.key === "currentRound") {
         renderPlayerView();
     }
+});
+
+window.addEventListener("resize", function () {
+    renderPlayerView();
 });
 
 

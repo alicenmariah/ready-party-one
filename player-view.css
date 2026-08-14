@@ -1,13 +1,14 @@
 meter {
     height: 30px;
     width: 11em;
+
 }
 
 .player-view-combat-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     width: 100%;
-    align-items: center;
+    align-items: stretch;
     justify-items: center;
     column-gap: 1em;
     row-gap: 6em;
@@ -16,12 +17,19 @@ meter {
 .player-box-template, .monster-box-template {
     width: 15vw;
     min-width: 220px;
-    height: 14em;
+    min-height: 14em;
     border-radius: .5em;
     padding: 1em;
     text-align: center;
     outline-width: .2em;
+}
 
+.player-box-template:not(.hidden), .monster-box-template:not(.hidden) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
 }
 
 .player-box-template.current-turn {
@@ -79,14 +87,6 @@ meter {
     font-size: 4em;
 }
 
-.ur-up-player {
-    color: rgb(54, 60, 177);
-}
-
-.ur-up-monster {
-    color: rgb(187, 66, 66);
-}
-
 .arrow {
     position: absolute;
     font-size: 4em;
@@ -118,7 +118,7 @@ meter {
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
     .arrow {
         display: none;
     }
@@ -128,7 +128,7 @@ meter {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .player-view-combat-list {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -138,6 +138,7 @@ meter {
     .player-view-section {
         padding-left: 1.5em;
         padding-right: 1.5em;
+        justify-content: center;
     }
 
     .player-view-combat-list {
